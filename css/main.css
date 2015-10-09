@@ -1,6 +1,7 @@
 body {
     padding-top: 50px;
     overflow: hidden;
+    font-family: "OpenSans",Arial,sans-serif;
 }
 #wrapper {
     min-height: 100%;
@@ -80,6 +81,7 @@ body {
 
 a, a:hover {
     color: inherit;
+
 }
 
 .info-list {
@@ -128,4 +130,42 @@ table {
 .right {
     float: right;
 
+}
+
+.left-list {
+    margin: 10px;
+    color:white;
+}
+
+.nav-el {
+    margin-left: 10px;
+    font-size: 18px;
+    font-family: "OpenSans",Arial,sans-serif;
+    text-decoration: none;
+}
+
+.info-background {
+    background-color: white;
+    margin-top: 20px;
+    border-radius: 5px;
+}
+
+.info-heading {
+    height: 50px;
+}
+
+.username {
+    font-size: 18px;
+    color: white;
+    margin-top: -5px;
+}
+
+.company-name {
+    font-size: 12px;
+    margin-top: -33px;
+}
+
+.org-name {
+    color: gray;
+    font-size: 13px;
 }
