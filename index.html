@@ -9,7 +9,6 @@
 </head>
 <body>
 
-
     <div id="header" class="navbar navbar-inverse navbar-fixed-top">
         <div class="navbar-header">
             <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target=".navbar-collapse">
@@ -106,7 +105,7 @@
     <script type="text/template" id="person-list-template">
 
         <% _.each(persons, function(person) { %>
-        <li class="list-group-item"><a href="#/persons/<%= person.id %>"><strong><%= person.name %></strong></a><br><p class="org-name"><%= person.org_id.name %></p></li>
+        <li class="list-group-item"><a href="#/persons/<%= person.id %>" ><strong><%= person.name %></strong></a><br><p class="org-name"><%= person.org_id.name %></p></li>
         <% }); %>
 
     </script>
@@ -150,6 +149,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-alpha1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/backbone.js/1.2.3/backbone-min.js"></script>
+    <script src="momentjs/moment.js"></script>
     <script src="main.js"></script>
 
 </body>

@@ -1,6 +1,8 @@
 /**
  * Created by Kristel on 4.10.2015.
  */
+
+
 var api_token = 'c5c94b4b053bc595e19c21a2301e317beb837664';
 
 $.ajaxPrefilter( function( options, originalOptions, jqXHR ) {
@@ -84,41 +86,23 @@ var PersonDetailView = Backbone.View.extend({
         person.fetch({
             success: function(person) {
 
-                var monthNames = ["January", "February", "March", "April", "May", "June",
-                    "July", "August", "September", "October", "November", "December"
-                ];
-
-                var now_date = new Date(person.get('add_time'));
-                var month = monthNames[now_date.getMonth()];
-                var day = now_date.getDate();
-                var year = now_date.getFullYear();
-                var new_date = month + ' ' + day + ', ' + year;
-
+                var added = moment(person.get('add_time')).format("MMMM D, YYYY");
+                
                 if(!person.get('next_activity_date')) {
                     person.set('next_activity_date', '-');
                 } else {
-                    var next_act_date = new Date(person.get('next_activity_date'));
-                    var next_act_time = person.get('next_activity_time');
-                    var next_act_month = monthNames[next_act_date.getMonth()];
-                    var next_act_day = next_act_date.getDate();
-                    var next_act_year = next_act_date.getFullYear();
-
-                    var new_next_act_date = next_act_month + ' ' + next_act_day + ', ' + next_act_year + ', ' + next_act_time.substring(0,5);
-                    person.set('next_activity_date', new_next_act_date);
+                    var next_act_date = moment(person.get('next_activity_date')).calendar();
+                    person.set('next_activity_date', next_act_date);
                 }
 
                 if(!person.get('last_activity_date')) {
                     person.set('last_activity_date', '-');
                 } else {
-                    var last_act_date = new Date(person.get('last_activity_date'));
-                    var last_act_month = monthNames[last_act_date.getMonth()];
-                    var last_act_day = last_act_date.getDate();
-                    var last_act_year = last_act_date.getFullYear();
-                    var new_last_act_date = last_act_month + ' ' + last_act_day + ', ' + last_act_year;
-                    person.set('last_activity_date', new_last_act_date);
+                    var last_act_date = moment(person.get('last_activity_date')).fromNow();
+                    person.set('last_activity_date', last_act_date);
                 }
 
-                person.set('add_time', new_date);
+                person.set('add_time', added);
 
                 $(that.el).html(that.template({ person: person.toJSON() }));
             }
@@ -167,3 +151,5 @@ router.on('route:person', function(id) {
 });
 
 Backbone.history.start();
+
+

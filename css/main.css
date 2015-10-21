@@ -35,30 +35,6 @@ body {
     overflow-y: auto;
 }
 
-@media (max-width: 992px) {
-    body {
-        padding-top: 0px;
-    }
-}
-@media (min-width: 992px) {
-    #main-wrapper {
-        float:right;
-    }
-}
-@media (max-width: 992px) {
-    #main-wrapper {
-        padding-top: 0px;
-    }
-}
-@media (max-width: 992px) {
-    #sidebar-wrapper {
-        position: static;
-        height:auto;
-        max-height: 300px;
-        border-right:0;
-    }
-}
-
 .list-group-item, .table-striped>tbody>tr:nth-of-type(even), thead {
     background: rgba(255,255,255,1);
     background: -moz-linear-gradient(top, rgba(255,255,255,1) 0%, rgba(247,247,247,1) 47%, rgba(240,240,240,1) 100%);
